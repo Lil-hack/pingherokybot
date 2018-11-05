@@ -1,0 +1,9 @@
+language: java
+jdk:
+ - oraclejdk8 
+install: gradle assemble
+deploy:
+  provider: heroku
+  api_key:
+    secure: c3523f6a-bad6-4cc4-bb1e-42d24cd4cbe5
+app: laba-1-java 
