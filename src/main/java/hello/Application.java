@@ -35,10 +35,11 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 public class Application extends TelegramLongPollingBot {
 
     public static void main(String[] args) {
+        ApiContextInitializer.init(); 
         SpringApplication.run(Application.class, args);
 
 
-        ApiContextInitializer.init();
+
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
         try {
 
