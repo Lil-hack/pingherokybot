@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 
@@ -33,9 +35,9 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 
 @SpringBootApplication
 public class Application extends TelegramLongPollingBot {
-
+private String URL;
     public static void main(String[] args) {
-        ApiContextInitializer.init(); 
+        ApiContextInitializer.init();
         SpringApplication.run(Application.class, args);
 
 
@@ -48,7 +50,24 @@ public class Application extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
+    @Component
+    public class ScheduledTasks {
 
+
+        @Scheduled(cron = "*/10 * * * * *")
+        public void reportCurrentTime() {
+
+           if(URL!=null)
+           {
+               SendMessage sendMessage = new SendMessage();
+               sendMessage.enableMarkdown(true);
+               sendMessage.setChatId(URL);
+               sendMessage.setText("123");
+               sendMessageMain(sendMessage);
+           }
+
+        }
+    }
     @Override
     public String getBotUsername() {
         return "Miit Love";
@@ -78,6 +97,7 @@ public class Application extends TelegramLongPollingBot {
                         sendMessage.setChatId(message.getChatId().toString());
                         sendMessage.setText("123");
                         sendMessageMain(sendMessage);
+                        URL=message.getChatId().toString();
                          break;
 
 
