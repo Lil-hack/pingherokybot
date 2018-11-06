@@ -62,7 +62,7 @@ public String URL;
 
                SendMessage sendMessage = new SendMessage();
                sendMessage.enableMarkdown(true);
-               sendMessage.setChatId(URL);
+               sendMessage.setChatId("416744346");
                sendMessage.setText("123");
                sendMessageMain(sendMessage);
 
