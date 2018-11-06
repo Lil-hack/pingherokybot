@@ -56,7 +56,7 @@ public String URL;
     public class ScheduledTasks {
 
 
-        @Scheduled(cron = "*/10 * * * * *")
+        @Scheduled(cron = "*/120 * * * * *")
         public void reportCurrentTime() {
 
 
