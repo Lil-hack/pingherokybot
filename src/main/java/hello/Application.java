@@ -37,7 +37,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 @EnableScheduling
 @SpringBootApplication
 public class Application extends TelegramLongPollingBot {
-private String URL;
+public String URL;
     public static void main(String[] args) {
         ApiContextInitializer.init();
         SpringApplication.run(Application.class, args);
@@ -59,14 +59,13 @@ private String URL;
         @Scheduled(cron = "*/10 * * * * *")
         public void reportCurrentTime() {
 
-           if(URL!=null)
-           {
+
                SendMessage sendMessage = new SendMessage();
                sendMessage.enableMarkdown(true);
                sendMessage.setChatId(URL);
                sendMessage.setText("123");
                sendMessageMain(sendMessage);
-           }
+
 
         }
     }
@@ -97,7 +96,7 @@ private String URL;
                         SendMessage sendMessage = new SendMessage();
                         sendMessage.enableMarkdown(true);
                         sendMessage.setChatId(message.getChatId().toString());
-                        sendMessage.setText("123");
+                        sendMessage.setText("123 "+message.getChatId().toString());
                         sendMessageMain(sendMessage);
                         URL=message.getChatId().toString();
                          break;
