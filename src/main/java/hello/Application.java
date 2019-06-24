@@ -74,7 +74,7 @@ public int schet=0;
 
 
 
-        @Scheduled(cron = "*/120 * * * * *")
+        @Scheduled(cron = "*/240 * * * * *")
         public void reportCurrentTime() {
         if(start==true) {
             schet = schet + 1;
