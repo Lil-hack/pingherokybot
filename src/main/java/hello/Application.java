@@ -74,7 +74,7 @@ public int schet=0;
 
 
 
-        @Scheduled(fixedDelay = 10000)
+        @Scheduled(fixedDelay = 120000)
         public void reportCurrentTime() {
         if(start==true) {
             schet = schet + 1;
@@ -119,7 +119,7 @@ public int schet=0;
         }
             try {
                 Random rand = new Random();
-                Thread.sleep(rand.nextInt(120));
+                Thread.sleep(rand.nextInt(120000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
