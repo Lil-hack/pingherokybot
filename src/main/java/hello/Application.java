@@ -74,7 +74,7 @@ public int schet=0;
 
 
 
-        @Scheduled(cron = "*/${random.int(300)} * * * * *")
+        @Scheduled(cron = "*/120 * * * * *")
         public void reportCurrentTime() {
         if(start==true) {
             schet = schet + 1;
@@ -117,6 +117,12 @@ public int schet=0;
             sendMessageMain(sendMessage);
 
         }
+            try {
+                Random rand = new Random();
+                Thread.sleep(rand.nextInt(120));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
     @Override
