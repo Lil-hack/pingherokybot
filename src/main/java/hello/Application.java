@@ -97,6 +97,12 @@ public int schet=0;
                     String result =
                             restTemplate.exchange(
                                     builder.toUriString(), HttpMethod.POST, entity, String.class).getBody();
+                    try {
+                        Random rand = new Random();
+                        Thread.sleep(rand.nextInt(5000));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
 
 
@@ -119,7 +125,7 @@ public int schet=0;
         }
             try {
                 Random rand = new Random();
-                Thread.sleep(rand.nextInt(120000));
+                Thread.sleep(rand.nextInt(60000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
