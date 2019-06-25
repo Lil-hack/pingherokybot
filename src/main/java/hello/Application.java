@@ -113,7 +113,7 @@ public int schet=0;
             SendMessage sendMessage = new SendMessage();
             sendMessage.enableMarkdown(true);
             sendMessage.setChatId("416744346");
-            sendMessage.setText(Integer.toString(schet));
+            sendMessage.setText(Integer.toString(schet)+" len:"+ String.valueOf(idList.size()));
             sendMessageMain(sendMessage);
 
         }
